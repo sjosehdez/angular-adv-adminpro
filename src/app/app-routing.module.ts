@@ -1,29 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { Grafica1Component } from './pages/grafica1/grafica1.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-import { PagesComponent } from './pages/pages/pages.component';
+
+//Modulos
+import { PagesRoutingModule} from './pages/pages.routing' // se agrega para poder tener acceso a las rutas hijas
+import { AuthRoutingModule} from './auth/auth.routing' // se agrega para poder tener acceso a las rutas hijas
+
+//Componentes
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 const routes: Routes = [
+  //Path: '/dashboard' PagesRouting
+  //Path: '/auth' AuthRouting  
   //Rutas protegidas
-  {
-    //Path vacio
-    path: '',
-    component: PagesComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'grafica1', component: Grafica1Component },
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-    ]
-  },
   //Rutas publicas 
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
   //Rutas de control
   { path: '**', component: NopagefoundComponent },
 ];
@@ -31,8 +20,11 @@ const routes: Routes = [
 
 @NgModule(
   {
-    declarations: [],
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+      RouterModule.forRoot(routes), 
+      PagesRoutingModule,
+      AuthRoutingModule
+    ],
     exports: [RouterModule]
   }
 )
