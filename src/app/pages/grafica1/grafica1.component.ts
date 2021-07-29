@@ -10,7 +10,8 @@ export class Grafica1Component {
   public labels1: string [] = ['Pan', 'Refrescos', 'Tacos'];
 
   public data1 = [
-    [200, 300, 500]
+    [200, 300, 500],
+    [500, 300, 200]
   ];
  
   //Comando segun para actualizar la version local del proyecto a la global de angular cli

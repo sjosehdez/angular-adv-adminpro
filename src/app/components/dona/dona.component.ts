@@ -17,8 +17,7 @@ export class DonaComponent {
   
 
   //public doughnutChartLabels: Label[] = ['Ventas de descarga', 'Ventas en la tienda', 'Ventas por correo'];
-  //public doughnutChartData: MultiDataSet = [ [350, 450, 100] ];
-  
+  //public doughnutChartData: MultiDataSet = [ [350, 450, 100] ];  
   public doughnut: ChartType = 'doughnut'; 
 
   public colors: Color[] = [
